@@ -1,0 +1,57 @@
+<canvas width="600" height="400"></canvas><br>
+<br>
+Escolha uma cor <input type="color">
+<br>
+Aperte SHIFT para aumentar o pincel
+<br>
+E ALT para diminuir
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+    paleta = document.querySelector("input")
+    var raio = 5
+    var desenha = false
+    
+    function desenhaCirculo(evento) {
+        
+        if(desenha){
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = paleta.value;
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * 3.14);
+            pincel.fill();
+            console.log(x + ',' + y);  
+        }
+        console.log(evento.shiftKey)
+        console.log(evento.altKey)
+
+        if(evento.shiftKey && raio <= 40){
+            
+            raio = raio + 10;
+        }
+
+        if(evento.altKey && raio - 5 >= 5){
+
+            raio = raio - 5;
+        }
+    }   
+    
+    tela.onmousemove = desenhaCirculo;
+     
+    function iniciaPincel() {
+
+        desenha = true
+    }
+
+    function paraPincel() {
+
+        desenha = false
+    }
+
+    tela.onmousedown = iniciaPincel;
+    tela.onmouseup = paraPincel;
+    
+</script> 
