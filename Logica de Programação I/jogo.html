@@ -1,0 +1,34 @@
+<meta charset="utf-8">
+
+<script>
+	
+	function pularLinha(){
+
+		document.write("<br>");
+	}
+
+	function mostra(escreve){
+
+			document.write (escreve);
+			pularLinha();
+	}
+	function sorteia(n){
+	 return Math.round(Math.random() * n)
+	}
+	var numeroAleatorio = sorteia(10)
+	
+	var tentativa = 1
+	while(tentativa <= 3){
+		var chute = parseInt(prompt("Qual seu chute?"))
+		if(chute == numeroAleatorio){
+		mostra("Você acertoo");
+		break;
+	}else{
+			
+		mostra("Você EROO")	
+
+	}
+ tentativa++
+}
+
+</script>

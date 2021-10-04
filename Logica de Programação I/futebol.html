@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+
+<script>
+	
+	function pularLinha(){
+
+		document.write("<br>");
+	}
+
+	function mostrar(escreve){
+
+			document.write (escreve);
+			pularLinha();
+	}
+
+	var vitorias = parseInt(prompt("Entre com o número de vitórias."));
+
+	var empates = parseInt(prompt("Entre com o número de empates."));
+
+	var pontos = vitorias  * 3 + empates;
+
+	mostrar("Os pontos do seu time são " + pontos);
+
+	if(pontos > 28){
+
+		mostrar("O time ta foda");
+	}
+	if(pontos < 28){
+
+		mostrar("O time do américa é uma merda");
+	}
+	if(pontos == 28){
+
+		mostrar("O time ta meio meeeh");
+	}
+
+</script>
